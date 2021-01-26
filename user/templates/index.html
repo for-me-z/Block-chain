@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="favicon icon" href="{% static 'img/favicon.ico' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+</head>
+<body>
+    <h1>首页  {{ uid }}</h1>
+    <h2>{{ uid }} 的班级:</h2>
+    <div id="content">
+        <ul>
+            {% if citems %}
+                {% for item in citems %}
+                    <li>
+                        <a href="#">{{ item.cID }} / {{ item.cn }} / {{ item.cETD }}</a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>没有数据，请先添加数据</li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>
